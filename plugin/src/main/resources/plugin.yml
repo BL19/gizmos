@@ -1,0 +1,33 @@
+name: Gizmos
+version: '${project.version}'
+main: net.bl19.gizmos.plugin.GizmosPlugin
+description: A plugin that adds a bunch of useful gizmos for user experience and developers
+prefix: 'Gizmos'
+api-version: '1.16'
+authors:
+  - BL19
+  - Walcriz
+softdepend:
+  - WorldGuard
+  - ServerSigns
+commands: 
+  gizmos:
+    aliases: 
+      - giz
+    description: Main command for the gizmos plugin
+    permission: gizmos.gizmos
+permissions: 
+  gizmos.*:
+    description: Gives access to all gizmos commands
+    default: op
+    children: 
+      gizmos.gizmos:
+        description: Gives access to the gizmos command
+        default: op
+      gizmos.hooks.*:
+        description: Gives access to all gizmos hooks
+        default: op
+        children: 
+          gizmos.hooks.worldguard:
+            description: Gives access to the worldguard hook
+            default: op
